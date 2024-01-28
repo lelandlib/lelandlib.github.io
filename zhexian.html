@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>正态分布图和折线图</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+  </head>
+  <body>
+    <h1>正态分布图和折线图</h1>
+    <div id="normalDistribution" style="width: 600px; height: 400px;"></div>
+    <div id="lineChart" style="width: 600px; height: 400px;"></div>
+
+    <script>
+      // 生成正态分布图
+      var normalDistributionChart = echarts.init(document.getElementById('normalDistribution'));
+      var option = {
+        title: {
+          text: '正态分布图'
+        },
+        xAxis: {
+          type: 'value'
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [{
+          type: 'line',
+          data: [/* 正态分布数据 */]
+        }]
+      };
+      normalDistributionChart.setOption(option);
+
+      // 生成折线图
+      var lineChart = echarts.init(document.getElementById('lineChart'));
+      var lineChartOption = {
+        title: {
+          text: '折线图'
+        },
+        xAxis: {
+          type: 'category',
+          data: [/* 横坐标数据 */]
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [{
+          type: 'line',
+          data: [/* 纵坐标数据 */]
+        }]
+      };
+      lineChart.setOption(lineChartOption);
+    </script>
+  </body>
+</html>
