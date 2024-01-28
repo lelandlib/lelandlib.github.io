@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>正態分佈圖和折線圖</title>
+    <title>正态分布图和折线图</title>
     <!-- 引入 ECharts 文件 -->
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
   </head>
   <body>
-    <h1>正態分佈圖和折線圖</h1>
+    <h1>正态分布图和折线图</h1>
     <div>
-      <label for="inputData">請輸入數據：</label>
+      <label for="inputData">请输入数据：</label>
       <textarea id="inputData" rows="10" cols="10"></textarea>
-      <button onclick="generateCharts()">生成圖表</button>
+      <button onclick="generateCharts()">生成图表</button>
     </div>
     <div id="normalDistribution" style="width: 600px; height: 400px;"></div>
     <div id="lineChart" style="width: 600px; height: 400px;"></div>
 
     <script>
       function generateCharts() {
-        // 獲取用戶輸入的數據
+        // 获取用户输入的数据
         var inputData = document.getElementById('inputData').value;
-        // 將輸入的數據轉換為數組
+        // 将输入的数据转换为数组
         var dataArray = inputData.split(',').map(Number);
 
-        // 生成正態分佈圖
+        // 生成正态分布图
         var normalDistributionChart = echarts.init(document.getElementById('normalDistribution'));
         var option = {
           title: {
-            text: '正態分佈圖'
+            text: '正态分布图'
           },
           xAxis: {
             type: 'value'
@@ -36,27 +36,33 @@
           },
           series: [{
             type: 'line',
-            data: dataArray
+            data: dataArray,
+            large: true, // 开启数据分块
+            largeThreshold: 100 // 设置数据分块的阈值
           }]
         };
         normalDistributionChart.setOption(option);
 
-        // 生成折線圖
+        // 生成折线图
         var lineChart = echarts.init(document.getElementById('lineChart'));
         var lineChartOption = {
           title: {
-            text: '折線圖'
+            text: '折线图'
           },
           xAxis: {
             type: 'category',
-            data: ['數據1', '數據2', '數據3', '數據4', '數據5']
+            data: dataArray.map(function (value, index) {
+              return '数据' + (index + 1);
+            })
           },
           yAxis: {
             type: 'value'
           },
           series: [{
             type: 'line',
-            data: dataArray
+            data: dataArray,
+            large: true, // 开启数据分块
+            largeThreshold: 100 // 设置数据分块的阈值
           }]
         };
         lineChart.setOption(lineChartOption);
