@@ -1,82 +1,77 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>正态分布图和折线图</title>
-    <!-- 引入 ECharts 文件 -->
-    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-  </head>
-  <body>
-    <h1>正态分布图和折线图</h1>
-    <div>
-      <label for="inputData">请输入数据：</label>
-      <textarea id="inputData" rows="10" cols="10"></textarea>
-      <button onclick="generateCharts()">生成图表</button>
-    </div>
-    <div id="normalDistribution" style="width: 600px; height: 400px;"></div>
-    <div id="lineChart" style="width: 600px; height: 400px;"></div>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正态分布預測</title>
+  <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+  <h1>正态分布預測</h1>
+  <div>
+    <label for="inputData">請輸入數據：</label>
+    <textarea id="inputData" rows="10" cols="10"></textarea>
+    <button onclick="generateCharts()">生成圖表</button>
+  </div>
+  <div id="normalDistribution" style="width: 600px; height: 400px;"></div>
+  <div id="lineChart" style="width: 600px; height: 400px;"></div>
 
-    <script>
-      function generateCharts() {
-        // 获取用户输入的数据
-        var inputData = document.getElementById('inputData').value;
-        // 将输入的数据转换为数组
-        var dataArray = inputData.split(',').map(Number);
+  <script>
+    function generateCharts() {
+      var inputData = document.getElementById('inputData').value;
+      var dataArray = inputData.split(',').map(Number);
 
-        // 生成正态分布图
-        var normalDistributionChart = echarts.init(document.getElementById('normalDistribution'));
-        var option = {
-          title: {
-            text: '正态分布图'
-          },
-          xAxis: {
-            type: 'value'
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [{
-            type: 'line',
-            data: dataArray,
-            large: true, // 开启数据分块
-            largeThreshold: 100 // 设置数据分块的阈值
-          }],
+      var normalDistributionChart = echarts.init(document.getElementById('normalDistribution'));
+      var option = {
+        title: {
+          text: '正态分布圖'
+        },
+        xAxis: {
+          type: 'value'
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [{
+          type: 'line',
+          data: dataArray,
           markLine: {
             data: [
               {type: 'average', name: '平均值'}
+              // 在這裡可以繼續添加其他預測走勢線的數值
             ]
           }
-        };
-        normalDistributionChart.setOption(option);
+        }]
+      };
+      normalDistributionChart.setOption(option);
 
-        // 生成折线图
-        var lineChart = echarts.init(document.getElementById('lineChart'));
-        var lineChartOption = {
-          title: {
-            text: '折线图'
-          },
-          xAxis: {
-            type: 'category',
-            data: dataArray.map(function (value, index) {
-              return '数据' + (index + 1);
-            })
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [{
-            type: 'line',
-            data: dataArray,
-            large: true, // 开启数据分块
-            largeThreshold: 100 // 设置数据分块的阈值
-          }],
+      var lineChart = echarts.init(document.getElementById('lineChart'));
+      var lineChartOption = {
+        title: {
+          text: '折線圖'
+        },
+        xAxis: {
+          type: 'category',
+          data: dataArray.map(function (value, index) {
+            return '數據' + (index + 1);
+          })
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [{
+          type: 'line',
+          data: dataArray,
           markLine: {
             data: [
               {type: 'average', name: '平均值'}
+              // 在這裡可以繼續添加其他預測走勢線的數值
             ]
           }
-        };
-        lineChart.setOption(lineChartOption);
-      }
-    </script>
-  </body>
+        }]
+      };
+      lineChart.setOption(lineChartOption);
+    }
+  </script>
+</body>
 </html>
