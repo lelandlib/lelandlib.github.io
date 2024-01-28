@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>正态分布图和折线图</title>
+    <title>正態分佈圖和折線圖</title>
     <!-- 引入 ECharts 文件 -->
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
   </head>
   <body>
-    <h1>正态分布图和折线图</h1>
+    <h1>正態分佈圖和折線圖</h1>
     <div>
-      <label for="inputData">请输入数据：</label>
+      <label for="inputData">請輸入數據：</label>
       <textarea id="inputData" rows="10" cols="10"></textarea>
-      <button onclick="generateCharts()">生成图表</button>
+      <button onclick="generateCharts()">生成圖表</button>
     </div>
     <div id="normalDistribution" style="width: 600px; height: 400px;"></div>
     <div id="lineChart" style="width: 600px; height: 400px;"></div>
 
     <script>
       function generateCharts() {
-        // 获取用户输入的数据
+        // 獲取用戶輸入的數據
         var inputData = document.getElementById('inputData').value;
-        // 将输入的数据转换为数组
+        // 將輸入的數據轉換為數組
         var dataArray = inputData.split(',').map(Number);
 
-        // 生成正态分布图
+        // 生成正態分佈圖
         var normalDistributionChart = echarts.init(document.getElementById('normalDistribution'));
         var option = {
           title: {
-            text: '正态分布图'
+            text: '正態分佈圖'
           },
           xAxis: {
             type: 'value'
@@ -41,15 +41,15 @@
         };
         normalDistributionChart.setOption(option);
 
-        // 生成折线图
+        // 生成折線圖
         var lineChart = echarts.init(document.getElementById('lineChart'));
         var lineChartOption = {
           title: {
-            text: '折线图'
+            text: '折線圖'
           },
           xAxis: {
             type: 'category',
-            data: ['数据1', '数据2', '数据3', '数据4', '数据5']
+            data: ['數據1', '數據2', '數據3', '數據4', '數據5']
           },
           yAxis: {
             type: 'value'
