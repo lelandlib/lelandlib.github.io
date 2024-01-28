@@ -39,7 +39,12 @@
             data: dataArray,
             large: true, // 开启数据分块
             largeThreshold: 100 // 设置数据分块的阈值
-          }]
+          }],
+          markLine: {
+            data: [
+              {type: 'average', name: '平均值'}
+            ]
+          }
         };
         normalDistributionChart.setOption(option);
 
@@ -63,7 +68,12 @@
             data: dataArray,
             large: true, // 开启数据分块
             largeThreshold: 100 // 设置数据分块的阈值
-          }]
+          }],
+          markLine: {
+            data: [
+              {type: 'average', name: '平均值'}
+            ]
+          }
         };
         lineChart.setOption(lineChartOption);
       }
