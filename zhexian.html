@@ -7,48 +7,60 @@
   </head>
   <body>
     <h1>正态分布图和折线图</h1>
+    <div>
+      <label for="inputData">请输入数据：</label>
+      <input type="text" id="inputData">
+      <button onclick="generateCharts()">生成图表</button>
+    </div>
     <div id="normalDistribution" style="width: 600px; height: 400px;"></div>
     <div id="lineChart" style="width: 600px; height: 400px;"></div>
 
     <script>
-      // 生成正态分布图
-      var normalDistributionChart = echarts.init(document.getElementById('normalDistribution'));
-      var option = {
-        title: {
-          text: '正态分布图'
-        },
-        xAxis: {
-          type: 'value'
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [{
-          type: 'line',
-          data: [/* 正态分布数据 */]
-        }]
-      };
-      normalDistributionChart.setOption(option);
+      function generateCharts() {
+        // 获取用户输入的数据
+        var inputData = document.getElementById('inputData').value;
+        // 将输入的数据转换为数组
+        var dataArray = inputData.split(',').map(Number);
 
-      // 生成折线图
-      var lineChart = echarts.init(document.getElementById('lineChart'));
-      var lineChartOption = {
-        title: {
-          text: '折线图'
-        },
-        xAxis: {
-          type: 'category',
-          data: [/* 横坐标数据 */]
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [{
-          type: 'line',
-          data: [/* 纵坐标数据 */]
-        }]
-      };
-      lineChart.setOption(lineChartOption);
+        // 生成正态分布图
+        var normalDistributionChart = echarts.init(document.getElementById('normalDistribution'));
+        var option = {
+          title: {
+            text: '正态分布图'
+          },
+          xAxis: {
+            type: 'value'
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [{
+            type: 'line',
+            data: dataArray
+          }]
+        };
+        normalDistributionChart.setOption(option);
+
+        // 生成折线图
+        var lineChart = echarts.init(document.getElementById('lineChart'));
+        var lineChartOption = {
+          title: {
+            text: '折线图'
+          },
+          xAxis: {
+            type: 'category',
+            data: ['数据1', '数据2', '数据3', '数据4', '数据5']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [{
+            type: 'line',
+            data: dataArray
+          }]
+        };
+        lineChart.setOption(lineChartOption);
+      }
     </script>
   </body>
 </html>
