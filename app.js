@@ -31,7 +31,7 @@ stopRecordingButton.addEventListener('click', () => {
   const formData = new FormData();
   formData.append('audio', audioFile);
 
-  fetch('YOUR_WORKER_URL', {
+  fetch('https://oops.lelandlib-com.workers.dev/', {
     method: 'POST',
     body: formData
   })
