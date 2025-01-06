@@ -25,6 +25,11 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
+# leland note
+
+### 1.[Becoming a Git pro](https://github.com/lelandlib/lelandlib.github.io/blob/main/post/2021-05-11-internalGitarchitecture.md)
+### 2.[更快地开发Python库](https://github.com/lelandlib/lelandlib.github.io/blob/main/post/2021-05-11-Gitworktreesandpyenv.md)
+### 3.[程序员赚钱的工具](https://github.com/lelandlib/lelandlib.github.io/blob/main/post/2021-05-11-makemoneytools.md)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
