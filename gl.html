@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>画一位美国姑娘</title>
+    <title>画一个简单的美女</title>
     <style>
         canvas {
             border: 1px solid #000;
@@ -17,56 +17,54 @@
         const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
 
-        // 画头
+        // 画脸
         ctx.fillStyle = '#ffcc99'; // 肤色
         ctx.beginPath();
-        ctx.arc(200, 100, 40, 0, Math.PI * 2, true); // 画个圆形作为头
+        ctx.arc(200, 150, 60, 0, Math.PI * 2, true); // 脸
+        ctx.fill();
+
+        // 画头发
+        ctx.fillStyle = '#8B4513'; // 棕色头发
+        ctx.beginPath();
+        ctx.arc(200, 130, 70, Math.PI, 0, true); // 头发
         ctx.fill();
 
         // 画眼睛
-        ctx.fillStyle = '#ffffff'; // 眼球白色
+        ctx.fillStyle = '#ffffff'; // 眼白
         ctx.beginPath();
-        ctx.arc(180, 90, 8, 0, Math.PI * 2, true); // 左眼
+        ctx.arc(180, 140, 10, 0, Math.PI * 2, true); // 左眼
         ctx.fill();
-        
         ctx.beginPath();
-        ctx.arc(220, 90, 8, 0, Math.PI * 2, true); // 右眼
+        ctx.arc(220, 140, 10, 0, Math.PI * 2, true); // 右眼
         ctx.fill();
 
-        // 画瞳孔
         ctx.fillStyle = '#000000'; // 瞳孔
         ctx.beginPath();
-        ctx.arc(180, 90, 4, 0, Math.PI * 2, true); // 左瞳孔
+        ctx.arc(180, 140, 5, 0, Math.PI * 2, true); // 左瞳孔
         ctx.fill();
-        
         ctx.beginPath();
-        ctx.arc(220, 90, 4, 0, Math.PI * 2, true); // 右瞳孔
+        ctx.arc(220, 140, 5, 0, Math.PI * 2, true); // 右瞳孔
         ctx.fill();
 
         // 画嘴巴
+        ctx.strokeStyle = '#ff0000'; // 红色嘴唇
         ctx.beginPath();
-        ctx.arc(200, 110, 15, 0, Math.PI, false); // 嘴巴
+        ctx.arc(200, 165, 15, 0, Math.PI, false); // 嘴巴
         ctx.stroke();
 
-        // 画头发
-        ctx.fillStyle = '#c2b280'; // 发色
-        ctx.beginPath();
-        ctx.arc(200, 80, 40, Math.PI, 0, true); // 头发
-        ctx.fill();
-
         // 画身体
-        ctx.fillStyle = '#00ccff'; // 衣服颜色
-        ctx.fillRect(180, 140, 40, 80); // 身体
+        ctx.fillStyle = '#ff69b4'; // 粉色衣服
+        ctx.fillRect(170, 210, 60, 100); // 身体
 
         // 画手
         ctx.fillStyle = '#ffcc99'; // 肤色
-        ctx.fillRect(160, 140, 20, 50); // 左手
-        ctx.fillRect(220, 140, 20, 50); // 右手
+        ctx.fillRect(140, 210, 30, 60); // 左手
+        ctx.fillRect(230, 210, 30, 60); // 右手
 
         // 画腿
-        ctx.fillStyle = '#0000ff'; // 裤子颜色
-        ctx.fillRect(180, 220, 15, 60); // 左腿
-        ctx.fillRect(205, 220, 15, 60); // 右腿
+        ctx.fillStyle = '#0000ff'; // 蓝色裤子
+        ctx.fillRect(170, 310, 25, 60); // 左腿
+        ctx.fillRect(205, 310, 25, 60); // 右腿
     </script>
 </body>
 </html>
